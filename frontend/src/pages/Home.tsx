@@ -47,9 +47,11 @@ export default function Home() {
                 Also informs you about the most probable decade and its associated probability.
               </p>
             </div>
-            <Button className="w-full mt-auto" variant="default">
-              Use Binary Model
-            </Button>
+            <Link to="/binary">
+              <Button className="w-full mt-auto" variant="default">
+                Use Binary Model
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
