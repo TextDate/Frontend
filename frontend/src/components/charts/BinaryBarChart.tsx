@@ -59,8 +59,8 @@ export default function BinaryBarChart({ data }: Props) {
             interval={0}
           />
           <Tooltip
-            formatter={(value: number) =>
-              `${Math.abs(value * 100).toFixed(2)}%`
+            formatter={(value) =>
+              typeof value === "number" ? `${Math.abs(value * 100).toFixed(2)}%` : ""
             }
             labelFormatter={(label) => `Label: ${label}`}
           />
