@@ -1,12 +1,23 @@
 # Build stage
 FROM node:23.9.0-alpine AS builder
 
+# Build arguments with defaults (can be overridden in Railway)
+ARG VITE_API_URL=/api/
+ARG VITE_API_TIMEOUT=100000
+ARG VITE_API_MAX_FILE_SIZE=5242880
+
+# Convert ARGs to ENVs for Vite build
+ENV VITE_API_URL=$VITE_API_URL
+ENV VITE_API_TIMEOUT=$VITE_API_TIMEOUT
+ENV VITE_API_MAX_FILE_SIZE=$VITE_API_MAX_FILE_SIZE
+
 WORKDIR /app
 
 COPY package*.json ./
 RUN npm install
 
 COPY . .
+
 RUN npm run build
 
 # Production stage
