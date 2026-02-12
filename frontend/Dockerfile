@@ -3,7 +3,7 @@ FROM node:23.9.0-alpine AS builder
 
 # Build arguments with defaults (can be overridden in Railway)
 ARG VITE_API_URL=/api/
-ARG VITE_API_TIMEOUT=100000
+ARG VITE_API_TIMEOUT=300000
 ARG VITE_API_MAX_FILE_SIZE=5242880
 
 # Convert ARGs to ENVs for Vite build
